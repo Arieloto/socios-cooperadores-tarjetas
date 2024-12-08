@@ -1,0 +1,143 @@
+/* Estilo general del body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: flex-start; /* Alineación superior */
+  flex-direction: column; /* Para que el título esté arriba y las tarjetas debajo */
+  height: 100vh;
+  margin: 0;
+  padding-top: 40px; /* Agregamos espacio superior para separar el título de la parte superior de la ventana */
+}
+
+/* Estilo del contenedor de las tarjetas */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Las tarjetas se ajustan a varias filas si no hay espacio */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  gap: 10px; /* Espacio de 10px entre las tarjetas */
+  margin-top: 20px; /* Espacio entre el título y las tarjetas */
+}
+
+/* Estilo de cada tarjeta */
+.business-card-horizontal {
+  width: 540px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  border: 3px solid #003366;
+  overflow: hidden;
+  page-break-inside: avoid; /* Evita que la tarjeta se divida entre páginas al imprimir */
+}
+
+/* Lado izquierdo de la tarjeta (foto del miembro) */
+.card-left {
+  flex: 1;
+  background-color: #003366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  flex-direction: column;
+}
+
+.member-photo {
+  width: 125px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+/* Lado derecho de la tarjeta (información del miembro) */
+.card-right {
+  flex: 2;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tittle {
+  align-items: center;
+}
+
+.club-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.club-logo {
+  width: 120px;
+  height: auto;
+  border-radius: 0;
+}
+
+.club-info h2 {
+  font-size: 20px;
+  color: #003366;
+  margin: 0;
+}
+
+.member-info {
+  margin-top: 10px;
+}
+
+.member-name {
+  text-align: center;
+  color: #ffffff;
+}
+
+.member-info p {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #333;
+}
+
+.member-info strong {
+  color: #003366;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Estilo del título principal */
+h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #003366;
+  margin: 0;
+  margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Estilo para impresión */
+@media print {
+  body {
+      background-color: #fff;
+      padding: 0;
+  }
+
+  .cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .business-card-horizontal {
+      margin: 0 auto; /* Centra la tarjeta en la página */
+  }
+
+  @page {
+      size: A4; /* Tamaño de la hoja */
+      margin: 20mm; /* Márgenes de la hoja para impresión */
+  }
+
+  .business-card-horizontal:nth-child(odd) {
+      page-break-after: avoid; /* Mantén la tarjeta en la misma hoja */
+  }
+
+  .business-card-horizontal:nth-child(even) {
+      page-break-after: always; /* Inserta un salto de página después de la segunda tarjeta */
+  }
+}
